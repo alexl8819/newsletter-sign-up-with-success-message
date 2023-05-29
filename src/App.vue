@@ -17,10 +17,8 @@
 
 <template>
   <div class="container">
-    <Transition>
-      <SuccessConfirmation v-model:email="email" v-if="emailConfirmed" />
-      <SignUp v-model:email="email" :error="error" :confirmed="emailConfirmed" v-else />
-    </Transition>
+    <SuccessConfirmation v-model:email="email" v-if="emailConfirmed" />
+    <SignUp v-model:email="email" :error="error" :confirmed="emailConfirmed" v-else />
   </div>
 </template>
 
@@ -29,15 +27,15 @@
     background-color: var(--custom-white);
   }
 
-  .v-enter-active,
+  /*.v-enter-active,
   .v-leave-active {
-    transition: opacity 0.5s ease-out;
+    transition: opacity 0.25s ease-out;
   }
 
   .v-enter-from,
   .v-leave-to {
     opacity: 0;
-  }
+  }*/
 
   @media screen and (width >= 1024px) {
     .container {

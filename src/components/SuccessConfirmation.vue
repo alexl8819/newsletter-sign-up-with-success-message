@@ -3,7 +3,7 @@
     email: String
   });
 
-  const doReset = () => window.location.reload();
+  const reload = () => window.location.reload();
 </script>
 
 <template>
@@ -17,7 +17,7 @@
       <p class="confirmation__message">A confirmation email has been sent to <strong>{{ props.email }}</strong>. 
       Please open it and click the button inside to confirm your subscription.</p>
 
-      <button type="button" class="confirmation__dismiss" @click.prevent="doReset">Dismiss message</button>
+      <button type="button" class="btn btn--primary" @click.prevent="reload">Dismiss message</button>
     </section>
   </div>
 </template>
@@ -49,17 +49,35 @@
   }
 
   .confirmation__message {
-    min-height: 100vh;
-    max-width: 18rem;
+    height: 50vh;
+    max-width: 16.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
-  .confirmation__dismiss {
-    border: none;
+  .btn--primary {
     padding: 15px 40px;
-    width: 100%;
-    color: var(--custom-white);
-    background-color: var(--dark-slate-grey);
-    border-radius: 8px;
-    cursor: pointer;
+  }
+
+  @media screen and (width >= 1024px) {
+    .newsletter__confirmation {
+      min-height: auto;
+      padding: 40px 60px;
+    }
+
+    .confirmation__container, .confirmation__message {
+      max-width: 20rem;
+    }
+
+    .confirmation__heading {
+      font-size: 3rem;
+      line-height: 3rem;
+      margin: 35px 0 0 0;
+    }
+
+    .confirmation__message {
+      margin: 30px 0;
+      height: auto;
+    }
   }
 </style>

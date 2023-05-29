@@ -34,7 +34,7 @@
           <input type="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" :disabled="props.confirmed" required />
           <label for="email" class="form__label">Email address</label>
         </div>
-        <button type="submit" class="form__submit" :class="{ 'form__submit--success': props.confirmed }" :disabled="props.confirmed">Subscribe to monthly newsletter</button>
+        <button type="submit" class="btn btn--primary" :class="{ 'btn--success': props.confirmed }" :disabled="props.confirmed">Subscribe to monthly newsletter</button>
       </form>
     </section>
   </div>
@@ -110,7 +110,7 @@
     font-weight: 700;
   }
 
-  .form__input, .form__submit {
+  .form__input {
     border-radius: 8px;
   }
 
@@ -132,26 +132,12 @@
 
   .form__input--error {
     border: 1px solid var(--tomato);
-    /*background-color: var(--tomato);*/
+    background-color: var(--transparent-tomato);
     color: var(--tomato);
-    font-weight: 700;
   }
 
-  .form__submit {
+  .btn--primary {
     padding: 20px;
-    border: none;
-    background-color: var(--dark-slate-grey);
-    cursor: pointer;
-    color: var(--custom-white);
-    font-weight: 700;
-  }
-
-  .form__submit--success {
-    background-color: var(--success);
-  }
-
-  .form__submit:disabled {
-    cursor: not-allowed;
   }
 
   @media screen and (width >= 1024px) {

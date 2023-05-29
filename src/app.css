@@ -3,11 +3,13 @@
   font-weight: 400;
 
   --tomato: hsl(4, 100%, 67%);
+  --transparent-tomato: hsla(4, 100%, 67%, 0.2);
   --dark-slate-grey: hsl(234, 29%, 20%);
   --charcoal-grey: hsl(235, 18%, 26%);
   --grey: hsl(231, 7%, 60%);
   --custom-white: hsl(0, 0%, 100%);
   --success: #39ad48;
+  --button-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 #app, .js-disabled {
@@ -26,4 +28,27 @@
 .js-disabled {
   text-transform: uppercase;
   color: var(--tomato);
+}
+
+.btn {
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background-color: var(--dark-slate-grey);
+  color: var(--custom-white);
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.btn--primary:hover {
+  background-color: var(--tomato);
+  box-shadow: var(--button-shadow);
+}
+
+.btn--success {
+  background-color: var(--success);
 }
