@@ -11,6 +11,7 @@
     "lint:css": "npx stylelint **/*.css"
   },
   "dependencies": {
+    "is-valid-email": "^0.0.5",
     "vue": "^3.2.47"
   },
   "devDependencies": {

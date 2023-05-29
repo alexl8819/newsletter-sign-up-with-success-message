@@ -1,12 +1,12 @@
 <script setup>
-  import { ref, computed } from 'vue';
+  import { ref } from 'vue';
 
-  // defineProps({})
-  const validateEmail = () => {
-    $emit('update:email', email);
-  }
-
-  const signupEmail = ref('');
+  const props = defineProps({
+    email: String,
+    error: Boolean
+  });
+  
+  const signupEmail = ref(props.email || '');
 </script>
 
 <template>
@@ -25,9 +25,11 @@
         <li class="feature__item">And much more!</li>
       </ol>
     
-      <form id="newsletterSignup" class="content__form" name="newsletterSignup" @submit.prevent="validateEmail">
-        <label for="email" class="form__label">Email address</label>
-        <input type="email" class="form__input" v-model.trim="signupEmail" placeholder="email@company.com" />
+      <form id="newsletterSignup" class="content__form" name="newsletterSignup" @submit.prevent="$emit('update:email', signupEmail)" novalidate="true">
+        <div class="form__field">
+          <input type="email" class="form__input" :class="{ 'form__error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" required />
+          <label for="email" class="form__label">Email address</label>
+        </div>
         <button type="submit" class="form__submit">Subscribe to monthly newsletter</button>
       </form>
     </section>
@@ -94,6 +96,11 @@
     flex-direction: column;
   }
 
+  .form__field {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
   .form__label {
     font-size: 0.8rem;
     font-weight: 700;
@@ -107,6 +114,20 @@
     padding: 15px 20px;
     margin: 8px 0 20px 0;
     border: 1px solid var(--grey);
+  }
+
+  .form__input:active, .form__input:focus {
+    outline: none;
+  }
+
+  .form__error + .form__label::after {
+    content: 'Invalid email';
+    color: var(--tomato);
+    float: right;
+  }
+
+  .form__error {
+    border: 1px solid var(--tomato);
   }
 
   .form__submit {
