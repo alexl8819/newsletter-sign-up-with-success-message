@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "vite build",
+    "build": "vite build --base=/newsletter-sign-up-with-success-message/",
     "dev": "vite",
     "lint:css": "npx stylelint **/*.{css,vue}",
     "lint:js": "eslint ./src --ext .js,.vue --max-warnings=0",
