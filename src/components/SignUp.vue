@@ -3,8 +3,7 @@
 
   const props = defineProps({
     email: String,
-    error: Boolean,
-    confirmed: Boolean
+    error: Boolean
   });
 
   defineEmits(['update:email']);
@@ -31,10 +30,10 @@
     
       <form id="newsletterSignup" class="content__form" name="newsletterSignup" @submit.prevent="$emit('update:email', signupEmail)" novalidate="true">
         <div class="form__field">
-          <input type="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" :disabled="props.confirmed" required />
+          <input type="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" required />
           <label for="email" class="form__label">Email address</label>
         </div>
-        <button type="submit" class="btn btn--primary" :class="{ 'btn--success': props.confirmed }" :disabled="props.confirmed">Subscribe to monthly newsletter</button>
+        <button type="submit" class="btn btn--primary">Subscribe to monthly newsletter</button>
       </form>
     </section>
   </div>
