@@ -3,17 +3,21 @@
 
   const props = defineProps({
     email: String,
-    error: Boolean
+    error: Boolean,
+    confirmed: Boolean
   });
-  
+
+  defineEmits(['update:email']);
+
   const signupEmail = ref(props.email || '');
 </script>
 
 <template>
   <div class="newsletter__signup">
-    <figure class="newsletter__illustration">
+    <picture class="newsletter__illustration">
+      <source srcset="../assets/images/illustration-sign-up-desktop.svg" media="(min-width: 1024px)" />
       <img class="illustration__image" src="../assets/images/illustration-sign-up-mobile.svg" alt="mobile sign up illustration" />
-    </figure>
+    </picture>
     <section class="newsletter__content">
       <h1 class="content__heading">Stay updated!</h1>
 
@@ -27,10 +31,10 @@
     
       <form id="newsletterSignup" class="content__form" name="newsletterSignup" @submit.prevent="$emit('update:email', signupEmail)" novalidate="true">
         <div class="form__field">
-          <input type="email" class="form__input" :class="{ 'form__error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" required />
+          <input type="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" :disabled="props.confirmed" required />
           <label for="email" class="form__label">Email address</label>
         </div>
-        <button type="submit" class="form__submit">Subscribe to monthly newsletter</button>
+        <button type="submit" class="form__submit" :class="{ 'form__submit--success': props.confirmed }" :disabled="props.confirmed">Subscribe to monthly newsletter</button>
       </form>
     </section>
   </div>
@@ -120,22 +124,34 @@
     outline: none;
   }
 
-  .form__error + .form__label::after {
-    content: 'Invalid email';
+  .form__input--error + .form__label::after {
+    content: 'Valid email required';
     color: var(--tomato);
     float: right;
   }
 
-  .form__error {
+  .form__input--error {
     border: 1px solid var(--tomato);
+    /*background-color: var(--tomato);*/
+    color: var(--tomato);
+    font-weight: 700;
   }
 
   .form__submit {
     padding: 20px;
     border: none;
     background-color: var(--dark-slate-grey);
+    cursor: pointer;
     color: var(--custom-white);
     font-weight: 700;
+  }
+
+  .form__submit--success {
+    background-color: var(--success);
+  }
+
+  .form__submit:disabled {
+    cursor: not-allowed;
   }
 
   @media screen and (width >= 1024px) {

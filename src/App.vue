@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, computed, watch } from 'vue';
+  import { ref, computed, watch, Transition } from 'vue';
   import isValidEmail from 'is-valid-email';
 
   import SignUp from './components/SignUp.vue';
@@ -17,8 +17,10 @@
 
 <template>
   <div class="container">
-    <SuccessConfirmation v-model:email="email" v-if="emailConfirmed" />
-    <SignUp v-model:email="email" :error="error" v-else />
+    <Transition>
+      <SuccessConfirmation v-model:email="email" v-if="emailConfirmed" />
+      <SignUp v-model:email="email" :error="error" :confirmed="emailConfirmed" v-else />
+    </Transition>
   </div>
 </template>
 
@@ -27,7 +29,19 @@
     background-color: var(--custom-white);
   }
 
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s ease-out;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
+  }
+
   @media screen and (width >= 1024px) {
-    border-radius: 1.5rem;
+    .container {
+      border-radius: 1.5rem;
+    }
   }
 </style>

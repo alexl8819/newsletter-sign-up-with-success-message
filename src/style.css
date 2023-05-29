@@ -7,6 +7,7 @@
   --charcoal-grey: hsl(235, 18%, 26%);
   --grey: hsl(231, 7%, 60%);
   --custom-white: hsl(0, 0%, 100%);
+  --success: #39ad48;
 }
 
 #app, .js-disabled {
