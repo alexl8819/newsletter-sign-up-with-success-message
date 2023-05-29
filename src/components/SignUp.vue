@@ -157,11 +157,21 @@
   @media screen and (width >= 1024px) {
     .newsletter__signup {
       flex-direction: row-reverse;
+      padding: 15px 5px;
       max-width: 72rem;
     }
 
+    .newsletter__content {
+      width: 55%;
+    }
+
     .newsletter__illustration, .newsletter__content {
-      width: 50%;
+      width: 45%
+    }
+
+    .newsletter__content {
+      margin: 0 30px;
+      padding: 10px;
     }
   }
 </style>
