@@ -8,6 +8,12 @@
         "plugin:vue/vue3-essential"
     ],
     "overrides": [
+      {
+          "files": [ "*.test.js" ],
+          "rules": {
+              "no-undef": 0
+          }
+      }
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
