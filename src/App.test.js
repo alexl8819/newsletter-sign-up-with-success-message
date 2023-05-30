@@ -4,7 +4,7 @@ import App from './App.vue';
 import SuccessConfirmation from './components/SuccessConfirmation';
 
 describe('App.vue', () => {
-  test('invalid email input should return error state', async () => {
+  test('child component should send back invalid email and create an error state', async () => {
     const invalidEmail = 'invalid@email';
     const wrapper = mount(App, {
       data() {
@@ -17,11 +17,12 @@ describe('App.vue', () => {
     
     await wrapper.find('input').setValue(invalidEmail);
     await wrapper.find('button').trigger('submit');
-    
+
+    expect(wrapper.vm.email).toBe(invalidEmail);
     expect(wrapper.vm.error).toBe(true);
   });
 
-  test('valid email input should trigger emailConfirmed computed state to be true', async () => {
+  test('valid email input should trigger computed emailConfirmed state to be true', async () => {
     const validEmail = 'test@test.com';
     const wrapper = mount(App, {
       data() {
@@ -38,7 +39,7 @@ describe('App.vue', () => {
     expect(wrapper.vm.emailConfirmed).toBe(true);
   });
 
-  test('valid state should trigger component change with correct email prop', async () => {
+  test('valid state should trigger component change with correct email prop passed', async () => {
     const validEmail = 'test@test.com';
     const wrapper = mount(App, {
       data() {
