@@ -3,7 +3,7 @@ import { shallowMount } from '@vue/test-utils';
 import SignUp from './SignUp.vue';
 
 describe('Signup.vue', () => {
-  test('renders initial props.email to update and props.error when passed', () => {
+  test('renders component with initial props when passed', () => {
     const email = '';
     const error = false;
     const wrapper = shallowMount(SignUp, {
@@ -23,5 +23,15 @@ describe('Signup.vue', () => {
     await wrapper.find('button').trigger('submit');
 
     expect(wrapper.emitted()).toHaveProperty('update:email');
+  });
+
+  test('invalid input passed from parent should contain error state class in input element', async () => {
+    const email = 'bad@email';
+    const error = true;
+    const wrapper = shallowMount(SignUp, {
+      props: { email, error }
+    });
+
+    expect(wrapper.find('input').html()).toContain('form__input--error');
   });
 });
