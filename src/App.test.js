@@ -4,7 +4,7 @@ import App from './App.vue';
 import SuccessConfirmation from './components/SuccessConfirmation';
 
 describe('App.vue', () => {
-  test('child component should send back invalid email and create an error state', async () => {
+  test('child component should send back an invalid email and create an error state', async () => {
     const invalidEmail = 'invalid@email';
     const wrapper = mount(App, {
       data() {
