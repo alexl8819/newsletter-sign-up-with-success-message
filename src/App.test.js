@@ -19,7 +19,7 @@ describe('App.vue', () => {
     await wrapper.find('button').trigger('submit');
 
     expect(wrapper.vm.email).toBe(invalidEmail);
-    expect(wrapper.vm.error).toBe(true);
+    expect(wrapper.vm.emailConfirmed).toBe(false);
   });
 
   test('valid email input should trigger computed emailConfirmed state to be true', async () => {

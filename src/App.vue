@@ -1,24 +1,18 @@
 <script setup>
-  import { ref, computed, watch, /*Transition*/ } from 'vue';
+  import { ref, computed,  /*Transition*/ } from 'vue';
   import isValidEmail from 'is-valid-email';
 
   import SignUp from './components/SignUp.vue';
   import SuccessConfirmation from './components/SuccessConfirmation.vue';
 
   const email = ref('');
-  const error = ref(false);
-
-  const emailConfirmed = computed(() => email.value.length && !error.value);
-
-  watch(email, (newEmail) => {
-    error.value = !isValidEmail(newEmail);
-  });
+  const emailConfirmed = computed(() => email && email.value.length && isValidEmail(email.value));
 </script>
 
 <template>
   <div class="container">
     <SuccessConfirmation v-model:email="email" v-if="emailConfirmed" />
-    <SignUp v-model:email="email" :error="error" v-else />
+    <SignUp v-model:email="email" :error="email ? !emailConfirmed : false" v-else />
   </div>
 </template>
 
