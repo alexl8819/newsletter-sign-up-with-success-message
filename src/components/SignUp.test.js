@@ -20,7 +20,7 @@ describe('Signup.vue', () => {
     });
     
     await wrapper.find('input').setValue('test@test.com');
-    await wrapper.find('button').trigger('submit');
+    await wrapper.find('form').trigger('submit');
 
     expect(wrapper.emitted()).toHaveProperty('update:email');
   });
@@ -32,6 +32,8 @@ describe('Signup.vue', () => {
       props: { email, error }
     });
 
+    // expect(getComputedStyle(wrapper.find('.form__input--error + .form__label').element, ':after').content).toContain('Valid email required');
+    // expect(wrapper.find('label::after').text()).toMatch('Valid email required');
     expect(wrapper.find('input').html()).toContain('form__input--error');
   });
 });
