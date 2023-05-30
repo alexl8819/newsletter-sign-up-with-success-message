@@ -19,7 +19,7 @@
       <p class="confirmation__message">A confirmation email has been sent to <strong>{{ props.email }}</strong>. 
       Please open it and click the button inside to confirm your subscription.</p>
 
-      <Button @click.prevent="reload" displayText="Dismiss message" />
+      <Button @click.prevent="reload" displayText="Dismiss message" aria-label="Dismiss Message" />
     </section>
   </div>
 </template>

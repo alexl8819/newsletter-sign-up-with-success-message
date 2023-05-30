@@ -17,7 +17,7 @@
   <div class="newsletter__signup">
     <picture class="newsletter__illustration">
       <source srcset="../assets/images/illustration-sign-up-desktop.svg" media="(min-width: 1024px)" />
-      <img class="illustration__image" src="../assets/images/illustration-sign-up-mobile.svg" alt="mobile sign up illustration" />
+      <img class="illustration__image" src="../assets/images/illustration-sign-up-mobile.svg" alt="sign up illustration" />
     </picture>
     <section class="newsletter__content">
       <h1 class="content__heading">Stay updated!</h1>
@@ -32,10 +32,10 @@
     
       <form id="newsletterSignup" class="content__form" name="newsletterSignup" @submit.prevent="$emit('update:email', signupEmail)" novalidate="true">
         <div class="form__field">
-          <input type="email" name="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" required />
+          <input type="email" id="email" name="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" required />
           <label for="email" class="form__label">Email address</label>
         </div>
-        <Button buttonType="submit" :shouldDisable="!signupEmail.length" displayText="Subscribe to monthly newsletter" />
+        <Button buttonType="submit" :shouldDisable="!signupEmail.length" displayText="Subscribe to monthly newsletter" aria-label="Email Confirmation" />
       </form>
     </section>
   </div>
