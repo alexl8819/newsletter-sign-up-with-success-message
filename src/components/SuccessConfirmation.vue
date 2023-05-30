@@ -29,7 +29,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     padding: 15px 40px;
   }
 
@@ -61,7 +61,7 @@
 
   @media screen and (width >= 1024px) {
     .newsletter__confirmation {
-      min-height: auto;
+      height: auto;
       padding: 40px 60px;
     }
 
