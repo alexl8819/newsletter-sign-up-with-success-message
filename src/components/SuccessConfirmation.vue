@@ -1,4 +1,6 @@
 <script setup>
+  import Button from './Button.vue';
+
   const props = defineProps({
     email: String
   });
@@ -17,7 +19,7 @@
       <p class="confirmation__message">A confirmation email has been sent to <strong>{{ props.email }}</strong>. 
       Please open it and click the button inside to confirm your subscription.</p>
 
-      <button type="button" class="btn btn--primary" @click.prevent="reload">Dismiss message</button>
+      <Button @click.prevent="reload" displayText="Dismiss message" />
     </section>
   </div>
 </template>

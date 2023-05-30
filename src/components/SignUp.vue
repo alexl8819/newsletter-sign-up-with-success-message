@@ -1,6 +1,8 @@
 <script setup>
   import { ref } from 'vue';
 
+  import Button from './Button.vue';
+
   const props = defineProps({
     email: String,
     error: Boolean
@@ -33,7 +35,7 @@
           <input type="email" name="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" required />
           <label for="email" class="form__label">Email address</label>
         </div>
-        <button type="submit" class="btn btn--primary" :disabled="!signupEmail.length">Subscribe to monthly newsletter</button>
+        <Button buttonType="submit" :shouldDisable="!signupEmail.length" displayText="Subscribe to monthly newsletter" />
       </form>
     </section>
   </div>
