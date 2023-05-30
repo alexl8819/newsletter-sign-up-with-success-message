@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <button type="buttonType" class="btn btn--primary" :disabled="shouldDisable">{{ displayText }}</button>
+  <button :type="buttonType" class="btn btn--primary" :disabled="shouldDisable">{{ displayText }}</button>
 </template>
 
 <style scoped>
