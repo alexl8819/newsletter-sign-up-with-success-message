@@ -33,7 +33,7 @@
           <input type="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" required />
           <label for="email" class="form__label">Email address</label>
         </div>
-        <button type="submit" class="btn btn--primary">Subscribe to monthly newsletter</button>
+        <button type="submit" class="btn btn--primary" :disabled="!signupEmail.length">Subscribe to monthly newsletter</button>
       </form>
     </section>
   </div>
@@ -137,6 +137,10 @@
 
   .btn--primary {
     padding: 20px;
+  }
+
+  .btn--primary:disabled {
+    cursor: not-allowed;
   }
 
   @media screen and (width >= 1024px) {

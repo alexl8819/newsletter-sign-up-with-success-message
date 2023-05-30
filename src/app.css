@@ -3,6 +3,7 @@
   font-weight: 400;
 
   --tomato: hsl(4deg, 100%, 67%);
+  --light-red: #fc4b59;
   --transparent-tomato: hsla(4deg, 100%, 67%, 0.2);
   --dark-slate-grey: hsl(234deg, 29%, 20%);
   --charcoal-grey: hsl(235deg, 18%, 26%);
@@ -45,7 +46,7 @@
 }
 
 .btn--primary:hover {
-  background-color: var(--tomato);
+  background: linear-gradient(to right, var(--light-red), var(--tomato));
   box-shadow: var(--button-shadow);
 }
 
