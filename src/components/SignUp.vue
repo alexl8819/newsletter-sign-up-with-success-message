@@ -124,6 +124,7 @@
 
   .form__input:active, .form__input:focus {
     outline: none;
+    border: 1px solid var(--dark-slate-grey);
   }
 
   .form__input--error + .form__label::after {

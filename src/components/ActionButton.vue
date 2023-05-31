@@ -37,7 +37,7 @@
   }
 
   .btn--primary:not(:disabled):hover {
-    background: linear-gradient(to right, var(--light-red) 40%, var(--tomato));
+    background: linear-gradient(to right, var(--light-red) 25%, var(--tomato));
     box-shadow: var(--button-shadow);
   }
 
