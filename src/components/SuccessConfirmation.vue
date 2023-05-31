@@ -10,17 +10,17 @@
 
 <template>
   <div class="newsletter__confirmation">
-    <picture class="confirmation__icon">
-      <img class="icon__image" src="../assets/images/icon-success.svg" alt="icon success" />
-    </picture>
-    <section class="confirmation__container">
-      <h1 class="confirmation__heading">Thanks for subscribing!</h1>
+    <div class="confirmation__container">
+      <img class="confirmation__icon" src="../assets/images/icon-success.svg" alt="icon success" />
+      <section class="confirmation__content">
+        <h1 class="confirmation__heading">Thanks for subscribing!</h1>
 
-      <p class="confirmation__message">A confirmation email has been sent to <strong>{{ props.email }}</strong>. 
-      Please open it and click the button inside to confirm your subscription.</p>
+        <p class="confirmation__message">A confirmation email has been sent to <strong>{{ props.email }}</strong>. 
+        Please open it and click the button inside to confirm your subscription.</p>
 
-      <Button @click.prevent="reload" displayText="Dismiss message" aria-label="Dismiss Message" />
-    </section>
+        <Button @click.prevent="reload" displayText="Dismiss message" aria-label="Dismiss Message" />
+      </section>
+    </div>
   </div>
 </template>
 
@@ -33,6 +33,7 @@
     width: 100%;
     height: 100vh;
     padding: 15px 40px;
+    background-color: var(--custom-white);
   }
 
   .confirmation__icon {
@@ -41,7 +42,7 @@
     margin: 0;
   }
 
-  .confirmation__container {
+  .confirmation__content {
     color: var(--charcoal-grey);
   }
   
@@ -52,34 +53,42 @@
 
   .confirmation__message {
     height: 50vh;
+    width: 100%;
     max-width: 16.5rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
 
-  .btn--primary {
-    padding: 15px 40px;
-  }
-
   @media screen and (width >= 1024px) {
-    .newsletter__confirmation {
+    .newsletter__confirmation, .confirmation__message {
       height: auto;
-      padding: 40px 60px;
+    }
+
+    .newsletter__confirmation {
+      padding: 50px;
+      border-radius: 1.5rem;
+      width: 100%;
+      max-width: 32rem;
+    }
+
+    .confirmation__content {
+      padding: 13px 0;
     }
 
     .confirmation__container, .confirmation__message {
-      max-width: 20rem;
+      max-width: 24.5rem;
     }
 
     .confirmation__heading {
-      font-size: 3rem;
+      font-size: 3.5rem;
       line-height: 3rem;
-      margin: 35px 0 0 0;
+      margin: 25px 0 0 0;
     }
 
     .confirmation__message {
-      margin: 30px 0;
-      height: auto;
+      margin: 40px 0;
+      font-size: 1.1rem;
+      line-height: 1.75rem;
     }
   }
 </style>

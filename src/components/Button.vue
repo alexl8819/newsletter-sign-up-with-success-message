@@ -5,7 +5,7 @@
       type: String
     },
     displayText: String,
-    shouldDisable: Boolean,
+    shouldDisable: Boolean
   });
 </script>
 
@@ -16,24 +16,35 @@
 <style scoped>
   .btn {
     border: none;
+    padding: 20px;
     width: 100%;
+    font-size: 0.875rem;
     cursor: pointer;
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
   }
 
   .btn--primary {
     background-color: var(--dark-slate-grey);
     color: var(--custom-white);
-    font-size: 0.875rem;
     font-weight: 700;
     border-radius: 8px;
   }
 
-  .btn--primary:hover {
+  .btn--primary:not(:disabled):hover {
     background: linear-gradient(to right, var(--light-red) 40%, var(--tomato));
     box-shadow: var(--button-shadow);
   }
 
   .btn--success {
     background-color: var(--success);
+  }
+
+  @media screen and (width >= 1024px) {
+    .btn {
+      font-size: 1rem;
+    }
   }
 </style>
