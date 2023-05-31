@@ -1,12 +1,12 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Button from './Button.vue';
+import ActionButton from './ActionButton.vue';
 
 describe('Button.vue', () => {
   test('renders props with default prop for button type', () => {
     const displayText = 'This is a test';
     const shouldDisable = false;
-    const wrapper = shallowMount(Button, {
+    const wrapper = shallowMount(ActionButton, {
       props: { displayText, shouldDisable }
     });
 
@@ -16,7 +16,7 @@ describe('Button.vue', () => {
   test('renders displayed text', () => {
     const displayText = 'This is a test';
     const shouldDisable = false;
-    const wrapper = shallowMount(Button, {
+    const wrapper = shallowMount(ActionButton, {
       props: { displayText, shouldDisable }
     });
 
@@ -26,7 +26,7 @@ describe('Button.vue', () => {
   test('renders a disabled button', () => {
     const displayText = 'This is a test';
     const shouldDisable = true;
-    const wrapper = shallowMount(Button, {
+    const wrapper = shallowMount(ActionButton, {
       props: { displayText, shouldDisable }
     });
 

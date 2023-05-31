@@ -4,8 +4,11 @@
       default: 'button',
       type: String
     },
-    displayText: String,
-    shouldDisable: Boolean
+    shouldDisable: {
+      default: false,
+      type: Boolean
+    },
+    displayText: String
   });
 </script>
 

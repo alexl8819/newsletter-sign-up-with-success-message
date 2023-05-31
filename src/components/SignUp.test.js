@@ -25,15 +25,23 @@ describe('Signup.vue', () => {
     expect(wrapper.emitted()).toHaveProperty('update:email');
   });
 
-  test('invalid input passed from parent should contain error state class in input element', async () => {
+  test('empty email input passed from parent should contain error state class in input element', async () => {
+    const email = ' ';
+    const error = true;
+    const wrapper = shallowMount(SignUp, {
+      props: { email, error }
+    });
+
+    expect(wrapper.find('input').html()).toContain('form__input--error');
+  });
+
+  test('invalid email input passed from parent should contain error state class in input element', async () => {
     const email = 'bad@email';
     const error = true;
     const wrapper = shallowMount(SignUp, {
       props: { email, error }
     });
 
-    // expect(getComputedStyle(wrapper.find('.form__input--error + .form__label').element, ':after').content).toContain('Valid email required');
-    // expect(wrapper.find('label::after').text()).toMatch('Valid email required');
     expect(wrapper.find('input').html()).toContain('form__input--error');
   });
 });

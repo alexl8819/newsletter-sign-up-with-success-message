@@ -1,7 +1,7 @@
 <script setup>
   import { ref } from 'vue';
 
-  import Button from './Button.vue';
+  import ActionButton from './ActionButton.vue';
 
   const props = defineProps({
     email: String,
@@ -30,12 +30,12 @@
         <li class="feature__item">And much more!</li>
       </ol>
     
-      <form id="newsletterSignup" class="content__form" name="newsletterSignup" @submit.prevent="$emit('update:email', signupEmail)" novalidate="true">
+      <form id="newsletterSignup" class="content__form" name="newsletterSignup" @submit.prevent="$emit('update:email', signupEmail.length ? signupEmail : ' ')" novalidate="true">
         <div class="form__field">
           <input type="email" id="email" name="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" required />
           <label for="email" class="form__label">Email address</label>
         </div>
-        <Button buttonType="submit" :shouldDisable="!signupEmail.length" displayText="Subscribe to monthly newsletter" aria-label="Email Confirmation" />
+        <ActionButton buttonType="submit" displayText="Subscribe to monthly newsletter" aria-label="Email Confirmation" />
       </form>
     </section>
   </div>
