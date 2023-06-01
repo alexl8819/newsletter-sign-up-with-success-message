@@ -48,6 +48,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: 100vh;
     padding-bottom: 15px;
     background-color: var(--custom-white);
   }
@@ -145,6 +146,7 @@
       padding: 20px 25px;
       border-radius: 1.5rem;
       max-width: 57rem;
+      min-height: auto;
     }
 
     .newsletter__illustration {
