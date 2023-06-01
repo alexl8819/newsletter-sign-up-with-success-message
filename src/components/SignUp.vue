@@ -11,6 +11,9 @@
   defineEmits(['update:email']);
 
   const signupEmail = ref(props.email || '');
+  const finalized = ref(false);
+
+  const finalize = () => finalized.value = true;
 </script>
 
 <template>
@@ -32,10 +35,10 @@
     
       <form id="newsletterSignup" class="content__form" name="newsletterSignup" @submit.prevent="$emit('update:email', signupEmail.length ? signupEmail : ' ')" novalidate="true">
         <div class="form__field">
-          <input type="email" id="email" name="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" required />
+          <input type="email" id="email" name="email" class="form__input" :class="{ 'form__input--error': props.error }" v-model.trim="signupEmail" placeholder="email@company.com" :disabled="!error && finalized" required />
           <label for="email" class="form__label">Email address</label>
         </div>
-        <ActionButton buttonType="submit" displayText="Subscribe to monthly newsletter" aria-label="Email Confirmation" />
+        <ActionButton buttonType="submit" :shouldDisable="!error && finalized" :class="{ 'btn--success': !error && finalized }" displayText="Subscribe to monthly newsletter" aria-label="Email Confirmation" @click="finalize" />
       </form>
     </section>
   </div>
