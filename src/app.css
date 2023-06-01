@@ -23,7 +23,7 @@
 #app {
   min-height: 100vh;
   min-width: 320px;
-  background-color: var(--dark-slate-grey);
+  background-color: var(--charcoal-grey);
 }
 
 .js-disabled {
