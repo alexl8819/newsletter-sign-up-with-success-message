@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Newsletter Sign Up with Success Message](https://slightlyfunctional.gitlab.io/newsletter-sign-up-with-success-message/)
+- Live Site URL: [Newsletter Sign Up with Success Message](https://alexl8819.github.io/newsletter-sign-up-with-success-message/)
 
 ## My process
 
@@ -69,5 +69,4 @@ with my projects. I have also began to write more descriptive git commits to mak
 
 ## Author
 
-- Website - [slightlyfunctional.com](https://slightlyfunctional.com)
-- Frontend Mentor - [@slightlyfunctional](https://www.frontendmentor.io/profile/slightlyfunctional)
+- Frontend Mentor - [@alexl8819](https://www.frontendmentor.io/profile/alexl8819)
